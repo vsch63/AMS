@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='agent.css') }}">
+
+  <script src=  "{{ url_for('static', filename = 'jquery.min.js') }}"></script>
+  <script src=  "{{ url_for('static', filename = 'bootstrap.min.js') }}"></script>
+  <script type = "text/javascript" 
+         src = "{{ url_for('static', filename = 'val_ifrs.js') }}" ></script>
+ 
+   </head> 
+<head>  
+    <title>Agency Management System</title>  
+     <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon1.ico') }}">
+</head>  
+  
+  
+</head>
+
+<body onload="show_hide()" >
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Agency Management</a>
+      </div>
+
+
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <div style="margin-top: 15px;float: right">
+          <label style="color: white"></label>
+          <label>&nbsp;&nbsp;</label>
+      
+          &nbsp;&nbsp;
+          &nbsp;&nbsp;
+        </div>
+      </div>
+
+  </nav>
+<div class="d-md-flex h-md-100 ">
+
+    <!-- First Half -->
+
+    <div class="col-md-6 p-0 bg-indigo h-md-100 loginarea">
+
+        <div class="left-div">
+            <form action="{{hostname}}/mainpage" method="post" enctype="multipart/form-data"  onSubmit="return validate_login()">
+
+                <body onload=show_hide()>
+                 <br/><br/><br/> <br/> <br/><br/>
+                 <p>{{invalid_login}}
+                 <table>
+                <tr>
+                    <td width="15%"></td>
+                    <td width="50%" align="center" colspan="2"> <label>Login</label></td></tr>
+                <tr><td width="15%"></td>
+                    <td align="center" width>
+                <label>User ID : </label></td>
+                <td>
+                <input  style="border: 2px solid #7F525D;border-radius: 2px;" type="text" name="username" id="username">
+            </td>
+        </tr>
+
+
+                    <tr>
+                        <td width="15%"></td>
+                        <td align="center">
+                    <label>Password : </label></td>
+                    <td>
+                   <input  style="border: 2px solid #7F525D;border-radius: 2px;" type="password" id="password" name="password">
+                </td>
+            </tr>
+            
+            <tr>
+                <td width="15%"></td>
+                <td colspan="2" align="center">                
+                    <input class="btn btn-default login-btn" id="login" name="login" type=Submit value="Login">
+                </td>
+            </tr>
+                </div>
+                </table>
+                </body>
+            </form>
+         
+        </div>
+
+    </div>
+
+    <!-- Second Half -->
+
+    <div class="col-md-6 p-0 bg-white h-md-100 loginarea ">
+
+        <img id="image" src="{{ url_for('static',filename='images/agentlogo2.jpg')}}" style="width:100%">
+       
+
+    </div>
+
+</div>
